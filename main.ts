@@ -1,31 +1,21 @@
-let roman = "MDCLXIV";
-let roman_separted = roman.split("");
+let number = "1652";
 
-function romanToNumber(roman) {
-  const romanNumerals = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-  let result = 0;
+function isNarcist(num) {
+  let base = num.length;
 
-  for (let i = 0; i < roman.length; i++) {
-    const currentRomanValue = romanNumerals[roman[i]];
-    const nextRomanValue = romanNumerals[roman[i + 1]] || 0;
-    console.log(nextRomanValue < nextRomanValue);
+  let separateNumber = number.split('')
 
-    if (currentRomanValue < nextRomanValue) {
-      result += nextRomanValue - currentRomanValue; // Skip next iteration since it was accounted for
-    } else {
-      result += currentRomanValue;
-    }
+  let newNumber = 0
+  for (let i =0 ; i< separateNumber.length; i++){
+    newNumber += parseInt(separateNumber[i]) ** base
   }
 
-  return result;
+  if(newNumber == parseInt(num)){
+    return true
+  }else{
+    return false
+  }
+
 }
 
-console.log(romanToNumber(roman));
+console.log(isNarcist(number));
