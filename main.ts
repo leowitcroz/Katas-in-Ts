@@ -1,21 +1,23 @@
-let number = "1652";
+let dna = "ATCG";
 
-function isNarcist(num) {
-  let base = num.length;
-
-  let separateNumber = number.split('')
-
-  let newNumber = 0
-  for (let i =0 ; i< separateNumber.length; i++){
-    newNumber += parseInt(separateNumber[i]) ** base
+function DNA(dna) {
+ 
+  const bases: any = {
+    A:'T',
+    T:'A',
+    C:'G',
+    G:'C'
   }
 
-  if(newNumber == parseInt(num)){
-    return true
-  }else{
-    return false
+  let otherSideDna = ''
+
+  for(let i = 0; i < dna.length; i++){
+    const currentBase = bases[dna[i]]
+    
+    otherSideDna += currentBase
   }
 
+  return otherSideDna
 }
 
-console.log(isNarcist(number));
+console.log(DNA(dna));
