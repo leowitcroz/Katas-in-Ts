@@ -1,23 +1,28 @@
-let dna = "ATCG";
+export {};
 
-function DNA(dna) {
- 
-  const bases: any = {
-    A:'T',
-    T:'A',
-    C:'G',
-    G:'C'
-  }
-
-  let otherSideDna = ''
-
-  for(let i = 0; i < dna.length; i++){
-    const currentBase = bases[dna[i]]
-    
-    otherSideDna += currentBase
-  }
-
-  return otherSideDna
+function givesMax(arr : any){
+  let max = arr.reduce((a :any, b:any) => {
+    return Math.max(a, b);
+  })
+  return max
 }
 
-console.log(DNA(dna));
+function newArray(oldArray, newArray, maxNumber){
+  let indice = oldArray.indexOf(maxNumber)
+  oldArray.splice(indice,1)
+  return newArray.push(maxNumber)
+}
+
+
+let ages : number[] = [1,5,87,45,8,8];
+let maxArray : number[] = [];
+
+let max1 = givesMax(ages)
+
+let firstArray = newArray(ages,maxArray,max1)
+
+let max2 = givesMax(ages)
+
+let secondArra = newArray(ages,maxArray,max2)
+
+console.log(maxArray.reverse());
